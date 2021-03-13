@@ -2,7 +2,7 @@
 name: Template de estória de usuário
 about: Esse template é utilizado para criação de novas estórias de usuário
 title: Criar [endpoint/logica] para a [funcionalidade]
-labels: ''
+labels: enhancement, Estória de usuário
 assignees: ''
 
 ---

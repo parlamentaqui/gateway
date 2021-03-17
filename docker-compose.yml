@@ -1,11 +1,17 @@
 version: "3.1"
 services:
-  prlmtq_gateway:
+  prlmntq_gateway:
     build: .
-    image: prlmtq_gateway
-    container_name: prlmtq_gateway
+    image: prlmntq_gateway
+    container_name: prlmntq_gateway
     restart: always
     ports:
       - 8001:5000
     volumes:
       - .:/usr/src/gateway
+    networks:
+      - prlmntq_net
+
+networks:
+  prlmntq_net:
+    external: true

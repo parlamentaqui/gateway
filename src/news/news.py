@@ -26,4 +26,4 @@ def deputies():
 @news.route('/latestNews')
 def latest_news():
     r = requests.get(f'http://{base_url}/api/news')
-    return json.dumps(r.json())
+    return r.json()

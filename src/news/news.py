@@ -20,7 +20,7 @@ def index():
 @news.route('/deputies')
 def deputies():
     r = requests.get(f'http://{base_url}/api/deputies')
-    return r.text
+    return r.json()
 
 #Pega as duas mais recentes noticias em formato json
 @news.route('/latestNews')

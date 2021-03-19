@@ -19,4 +19,4 @@ def index():
 @news.route('/deputies')
 def deputies():
     r = requests.get(f'http://{base_url}/api/deputies')
-    return r.text
+    return r.json()

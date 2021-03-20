@@ -20,3 +20,8 @@ def index():
 def deputies():
     r = requests.get(f'http://{base_url}/api/deputies')
     return r.json()
+
+@camara.route('profile/<id>')
+def profile(id):
+    r = requests.get(f'http://{base_url}/api/{id}')
+    return r.json()

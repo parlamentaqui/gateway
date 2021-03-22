@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,9 +19,10 @@ def index():
 @camara.route('/deputies')
 def deputies():
     r = requests.get(f'http://{base_url}/api/deputies')
-    return r.json()
+  
+    return jsonify(r.json())
 
 @camara.route('/resultado', methods=['POST'])
 def resultado():
     r = requests.post(f'http://{base_url}/api/resultado', json=request.get_json())
-    return r.json()
+    return jsonify(r.json())

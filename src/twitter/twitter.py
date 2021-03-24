@@ -21,3 +21,9 @@ def tweets():
     print(f'http://{base_url}/api/tweets')
     r = requests.get(f'http://{base_url}/api/tweets')
     return r.text
+
+@twitter.route('/test')
+def test():
+    print(f'http://{base_url}/api/test')
+    r = requests.get(f'http://{base_url}/api/test')
+    return r.text

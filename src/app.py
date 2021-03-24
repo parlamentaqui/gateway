@@ -5,7 +5,7 @@ from twitter.twitter import twitter
 from camara.camara import camara
 from tse.tse import tse
 from dotenv import load_dotenv
-
+fail
 load_dotenv()
 
 app = Flask(__name__)

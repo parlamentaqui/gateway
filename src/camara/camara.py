@@ -21,6 +21,11 @@ def deputies():
     r = requests.get(f'http://{base_url}/api/deputies')
     return jsonify(r.json())
 
+@camara.route('/home')
+def deputies():
+    r = requests.get(f'http://{base_url}/api/deputies')
+    return jsonify(r.json())
+
 @camara.route('/resultado', methods=['POST'])
 def resultado():
     r = requests.post(f'http://{base_url}/api/resultado', json=request.get_json())
@@ -30,3 +35,5 @@ def resultado():
 def profile(id):
     r = requests.get(f'http://{base_url}/api/deputies/{id}')
     return r.json()
+
+

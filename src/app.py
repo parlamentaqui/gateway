@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from news.news import news
 from twitter.twitter import twitter

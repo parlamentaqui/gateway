@@ -4,11 +4,10 @@ from news.news import news
 from twitter.twitter import twitter
 from camara.camara import camara
 from tse.tse import tse
-from dotenv import load_dotenv
-
-load_dotenv()
+from flask_cors import CORS 
 
 app = Flask(__name__)
+cors = CORS(app)
 app.register_blueprint(news)
 app.register_blueprint(twitter)
 app.register_blueprint(camara)

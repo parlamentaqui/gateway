@@ -31,7 +31,7 @@ def resultado():
     r = requests.post(f'http://{base_url}/api/resultado', json=request.get_json())
     return jsonify(r.json())
 
-@camara.route('profile/<id>')
+@camara.route('/profile/<id>')
 def profile(id):
     r = requests.get(f'http://{base_url}/api/deputies/{id}')
     return r.json()

@@ -22,7 +22,7 @@ def deputies():
     return jsonify(r.json())
 
 @camara.route('/home')
-def deputies():
+def deputies_home():
     r = requests.get(f'http://{base_url}/api/deputies')
     return jsonify(r.json())
 
@@ -35,5 +35,16 @@ def resultado():
 def profile(id):
     r = requests.get(f'http://{base_url}/api/deputies/{id}')
     return r.json()
+
+
+@camara.route('/parties')
+def parties():
+    r = requests.get(f'http://{base_url}/api/parties')
+    return jsonify(r.json())
+
+@camara.route('/federative_unities')
+def federative_unities():
+    r = requests.get(f'http://{base_url}/api/federative_unities')
+    return jsonify(r.json())
 
 

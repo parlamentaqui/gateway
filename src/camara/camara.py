@@ -18,11 +18,11 @@ def index():
 
 @camara.route('/deputies')
 def deputies():
-    r = requests.get(f'http://{base_url}/api/deputies')
+    r = requests.get(f'http://{base_url}/api/deputies-home')
     return jsonify(r.json())
 
 @camara.route('/home')
-def deputies():
+def deputies_home():
     r = requests.get(f'http://{base_url}/api/deputies')
     return jsonify(r.json())
 

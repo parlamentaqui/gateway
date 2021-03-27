@@ -1,0 +1,23 @@
+name: Run deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy gateway to DigitalOcean
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd 
+            rm -rf gateway
+            git clone https://github.com/parlamentaqui/gateway/
+            cp envs/.env_gateway gateway/.env
+            cd gateway
+            make start-prod
+          host: ${{ secrets.DO_HOST }}
+          pass: ${{ secrets.DO_PASSWORD }}

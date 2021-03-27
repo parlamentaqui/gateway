@@ -1,6 +1,7 @@
 import os
 import requests
-from flask import Blueprint
+import json
+from flask import Blueprint, jsonify
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,4 +21,9 @@ def index():
 def deputies():
     r = requests.get(f'http://{base_url}/api/deputies')
     return jsonify(r.json())
-    
+
+#Pega as duas mais recentes noticias em formato json
+@news.route('/latestNews')
+def latest_news():
+    r = requests.get(f'http://{base_url}/api/news')
+    return jsonify(r.json())

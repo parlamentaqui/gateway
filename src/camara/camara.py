@@ -47,7 +47,7 @@ def federative_unities():
     r = requests.get(f'http://{base_url}/api/federative_unities')
     return jsonify(r.json())
 
-@camara.route('/get_votes_by_deputy_id/<id>')
-def get_votes_by_deputy_id(id):
-    r = requests.get(f'http://{base_url}/api/get_votes_by_deputy_id/{id}')
+@camara.route('/get_proposition_vote_by_deputy_id/<id>')
+def get_proposition_vote_by_deputy_id(id):
+    r = requests.get(f'http://{base_url}/api/get_proposition_vote_by_deputy_id/{id}')
     return jsonify(r.json())

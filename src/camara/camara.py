@@ -47,4 +47,14 @@ def federative_unities():
     r = requests.get(f'http://{base_url}/api/federative_unities')
     return jsonify(r.json())
 
+@camara.route('/expenses')
+def all_expenses():
+    r = requests.get(f'http://{base_url}/api/expenses')
 
+    return jsonify(r.json())
+
+@camara.route('/expenses/<id>')
+def expense(id):
+    r = requests.get(f'http://{base_url}/api/expenses/{id}')
+
+    return jsonify(r.json())

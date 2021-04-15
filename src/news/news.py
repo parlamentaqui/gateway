@@ -27,3 +27,8 @@ def deputies():
 def latest_news():
     r = requests.get(f'http://{base_url}/api/news')
     return jsonify(r.json())
+
+@news.route('/latestNews/<id>')
+def latest_news_by_id(id):
+    r = requests.get(f'http://{base_url}/api/get_news_by_id/{id}')
+    return jsonify(r.json())

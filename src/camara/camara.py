@@ -50,3 +50,8 @@ def federative_unities():
 def get_proposition_vote_by_deputy_id(id):
     r = requests.get(f'http://{base_url}/api/get_votes_by_deputy_id/{id}')
     return jsonify(r.json())
+
+@camara.route('/get_proposition_by_id/<id>')
+def get_proposition_by_id(id):
+    r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
+    return jsonify(r.json())

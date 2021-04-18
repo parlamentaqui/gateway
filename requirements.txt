@@ -11,3 +11,5 @@ requests==2.25.1
 urllib3==1.26.4
 Werkzeug==1.0.1
 flask-cors==3.0.10
+mock==3.0.5
+

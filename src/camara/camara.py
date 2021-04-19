@@ -36,7 +36,6 @@ def profile(id):
     r = requests.get(f'http://{base_url}/api/deputies/{id}')
     return r.json()
 
-
 @camara.route('/parties')
 def parties():
     r = requests.get(f'http://{base_url}/api/parties')
@@ -57,4 +56,7 @@ def all_expenses():
 def expense(id):
     r = requests.get(f'http://{base_url}/api/expenses/{id}')
 
+@camara.route('/get_votes_by_deputy_id/<id>')
+def get_proposition_vote_by_deputy_id(id):
+    r = requests.get(f'http://{base_url}/api/get_votes_by_deputy_id/{id}')
     return jsonify(r.json())

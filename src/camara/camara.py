@@ -67,3 +67,8 @@ def get_proposition_vote_by_deputy_id(id):
 def get_proposition_by_id(id):
     r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
     return jsonify(r.json())
+
+@camara.route('/filtered_propositions', methods=['POST'])
+def filtered_propositions():
+    r = requests.post(f'http://{base_url}/api/filtered_propositions', json=request.get_json())
+    return jsonify(r.json())

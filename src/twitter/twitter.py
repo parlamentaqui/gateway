@@ -23,5 +23,5 @@ def tweets():
 
 @twitter.route('/get_tweets_by_proposition_id/<id>')
 def get_tweets_by_proposition_id(id):
-    r = requests.get(f'http://{base_url}/api/get_tweets_by_proposition_id/{id}')
+    r = requests.get(f'https://{base_url}/api/get_tweets_by_proposition_id/{id}')
     return jsonify(r.json())

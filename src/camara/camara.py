@@ -65,21 +65,10 @@ def get_proposition_vote_by_deputy_id(id):
 
 @camara.route('/get_proposition_by_id/<id>')
 def get_proposition_by_id(id):
-    r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
-    return jsonify(r.json())
-
-@camara.route('/get_proposition_by_id/<id>')
-def get_proposition_by_id(id):
-    r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
+    r = requests.get(f'http://{base_url}/api/get_proposition_by_id/{id}')
     return jsonify(r.json())
 
 @camara.route('/get_proposition_by_year/<year>')
 def get_proposition_by_year(year):
-    r = requests.get(f'http://{base_url}/api//get_proposition_by_year/{year}')
-    return jsonify(r.json())
-
-@camara.route('/project_images')
-def all_images():
-    r = requests.get(f'http://{base_url}/api/project_images')
-
+    r = requests.get(f'http://{base_url}/api/get_proposition_by_year/{year}')
     return jsonify(r.json())

@@ -18,12 +18,12 @@ def index():
 
 @camara.route('/deputies')
 def deputies():
-    r = requests.get(f'http://{base_url}/api/deputies-home')
+    r = requests.get(f'http://{base_url}/api/deputies')
     return jsonify(r.json())
 
 @camara.route('/home')
 def deputies_home():
-    r = requests.get(f'http://{base_url}/api/deputies')
+    r = requests.get(f'http://{base_url}/api/deputies-home')
     return jsonify(r.json())
 
 @camara.route('/resultado', methods=['POST'])
@@ -55,6 +55,12 @@ def all_expenses():
 @camara.route('/expenses/<id>')
 def expense(id):
     r = requests.get(f'http://{base_url}/api/expenses/{id}')
+
+    return jsonify(r.json())
+
+@camara.route('/filtered_expenses/<id>', methods=['POST'])
+def filtered_expenses(id):
+    r = requests.post(f'http://{base_url}/api/filtered_expenses/{id}', json=request.get_json())
 
     return jsonify(r.json())
 

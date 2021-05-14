@@ -21,6 +21,12 @@ def tweets():
     r = requests.get(f'http://{base_url}/api/tweets')
     return jsonify(r.json())
 
+# Rota de acesso para ir na etl_twitter e pegar a rota de twetts por id do deputado
+@twitter.route('tweets_by_id/<id>')
+def tweets_by_id(id):
+    r = requests.get(f'http://{base_url}/api/get_tweets_id_deputy/{id}')
+    return jsonify(r.json())
+    
 @twitter.route('/get_tweets_by_proposition_id/<id>')
 def get_tweets_by_proposition_id(id):
     r = requests.get(f'http://{base_url}/api/get_tweets_by_proposition_id/{id}')

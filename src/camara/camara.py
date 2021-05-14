@@ -52,6 +52,12 @@ def all_expenses():
 
     return jsonify(r.json())
 
+@camara.route('/propositions')
+def all_propositions():
+    r = requests.get(f'http://{base_url}/api/get_all_propositions')
+
+    return jsonify(r.json())
+
 @camara.route('/expenses/<id>')
 def expense(id):
     r = requests.get(f'http://{base_url}/api/expenses/{id}')

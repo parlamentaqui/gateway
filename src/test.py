@@ -134,5 +134,27 @@ class TseTests(unittest.TestCase):
     def tearDown(self):
         self.context.pop()
 
+
+class TwitterTests(unittest.TestCase):
+
+    def setUp(self):
+        self.app = app
+        self.app.testing = True
+        self.context = self.app.test_request_context()
+        self.context.push()
+        self.client = self.app.test_client()
+
+    def test_index_twitter_status(self):
+        request = self.client.get('/twitter')
+        self.assertEqual(200 , request.status_code)
+        self.assertEqual('twitter' , request.data.decode())
+
+    def test_tweets_status(self):
+        request = self.client.get('/twitter/tweets')
+        self.assertEqual(200 , request.status_code)
+
+    def tearDown(self):
+        self.context.pop()
+
 if __name__=='__main__':
     unittest.main()

@@ -92,7 +92,7 @@ class NewsTests(unittest.TestCase):
         self.context.push()
         self.client = self.app.test_client()
 
-    def test_index_camara_status(self):
+    def test_index_news_status(self):
         request = self.client.get('/news')
         self.assertEqual(200 , request.status_code)
         self.assertEqual('news' , request.data.decode())
@@ -108,6 +108,28 @@ class NewsTests(unittest.TestCase):
     def test_latestNews_id_status(self):
         request = self.client.get('/news/latestNews/3')
         self.assertEqual(200 , request.status_code)
+
+    def tearDown(self):
+        self.context.pop()
+
+
+class TseTests(unittest.TestCase):
+
+    def setUp(self):
+        self.app = app
+        self.app.testing = True
+        self.context = self.app.test_request_context()
+        self.context.push()
+        self.client = self.app.test_client()
+
+    def test_index_tse_status(self):
+        request = self.client.get('/tse')
+        self.assertEqual(200 , request.status_code)
+        self.assertEqual('tse' , request.data.decode())
+
+    # def test_deputies_status(self):
+    #     request = self.client.get('/tse/deputies')
+    #     self.assertEqual(200 , request.status_code)
 
     def tearDown(self):
         self.context.pop()

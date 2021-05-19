@@ -71,5 +71,20 @@ def get_proposition_vote_by_deputy_id(id):
 
 @camara.route('/get_proposition_by_id/<id>')
 def get_proposition_by_id(id):
-    r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
+    r = requests.get(f'http://{base_url}/api/get_proposition_by_id/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_all_expenses/<id>')
+def get_all_expenses(id):
+    r = requests.get(f'http://{base_url}/api/expenses/{id}')
+    return jsonify(r.json())
+
+@camara.route('/expenses_by_type/<id>')
+def expenses_by_type(id):
+    r = requests.get(f'http://{base_url}/api/expenses_by_type/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_curiosities_by_id/<id>')
+def get_curiosities_by_id(id):
+    r = requests.get(f'http://{base_url}/api/get_curiosities/{id}')
     return jsonify(r.json())

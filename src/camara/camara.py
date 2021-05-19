@@ -18,12 +18,12 @@ def index():
 
 @camara.route('/deputies')
 def deputies():
-    r = requests.get(f'http://{base_url}/api/deputies-home')
+    r = requests.get(f'http://{base_url}/api/deputies')
     return jsonify(r.json())
 
 @camara.route('/home')
 def deputies_home():
-    r = requests.get(f'http://{base_url}/api/deputies')
+    r = requests.get(f'http://{base_url}/api/deputies-home')
     return jsonify(r.json())
 
 @camara.route('/resultado', methods=['POST'])
@@ -90,4 +90,19 @@ def get_proposition_by_year(year):
 @camara.route('/get_propositions_by_author_id/<id>')
 def get_propositions_by_author_id(id):
     r = requests.get(f'http://{base_url}/api/get_propositions_by_author_id/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_all_expenses/<id>')
+def get_all_expenses(id):
+    r = requests.get(f'http://{base_url}/api/expenses/{id}')
+    return jsonify(r.json())
+
+@camara.route('/expenses_by_type/<id>')
+def expenses_by_type(id):
+    r = requests.get(f'http://{base_url}/api/expenses_by_type/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_curiosities_by_id/<id>')
+def get_curiosities_by_id(id):
+    r = requests.get(f'http://{base_url}/api/get_curiosities/{id}')
     return jsonify(r.json())

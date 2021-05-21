@@ -40,3 +40,8 @@ def get_total_value_deputies_equity(id):
 def csv_deputies():
     r = requests.get(f'http://{base_url}/api/csv_deputies')
     return jsonify(r.json())
+
+@tse.route('/get_total_value_deputies_equity_by_year/<id>')
+def get_total_value_deputies_equity_by_year(id):
+    r = requests.get(f'http://{base_url}/api/get_total_value_deputies_equity_by_year/{id}')
+    return jsonify(r.json())

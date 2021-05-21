@@ -52,6 +52,12 @@ def all_expenses():
 
     return jsonify(r.json())
 
+@camara.route('/propositions')
+def all_propositions():
+    r = requests.get(f'http://{base_url}/api/get_all_propositions')
+
+    return jsonify(r.json())
+
 @camara.route('/expenses/<id>')
 def expense(id):
     r = requests.get(f'http://{base_url}/api/expenses/{id}')
@@ -71,10 +77,37 @@ def get_proposition_vote_by_deputy_id(id):
 
 @camara.route('/get_proposition_by_id/<id>')
 def get_proposition_by_id(id):
+    r = requests.get(f'http://{base_url}/api/get_proposition_by_id/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_proposition_by_year/<year>')
+def get_proposition_by_year(year):
+    r = requests.get(f'http://{base_url}/api/get_proposition_by_year/{year}')
+    return jsonify(r.json())
     r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
     return jsonify(r.json())
 
 @camara.route('/deputy_by_name', methods=['POST'])
 def deputy_by_name():
     r = requests.post(f'http://{base_url}/api/deputy_by_name', json=request.get_json())
+    return jsonify(r.json())
+    
+@camara.route('/get_propositions_by_author_id/<id>')
+def get_propositions_by_author_id(id):
+    r = requests.get(f'http://{base_url}/api/get_propositions_by_author_id/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_all_expenses/<id>')
+def get_all_expenses(id):
+    r = requests.get(f'http://{base_url}/api/expenses/{id}')
+    return jsonify(r.json())
+
+@camara.route('/expenses_by_type/<id>')
+def expenses_by_type(id):
+    r = requests.get(f'http://{base_url}/api/expenses_by_type/{id}')
+    return jsonify(r.json())
+
+@camara.route('/get_curiosities_by_id/<id>')
+def get_curiosities_by_id(id):
+    r = requests.get(f'http://{base_url}/api/get_curiosities/{id}')
     return jsonify(r.json())

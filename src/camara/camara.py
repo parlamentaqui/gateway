@@ -87,6 +87,11 @@ def get_proposition_by_year(year):
     r = requests.get(f'http://{base_url}/api//get_proposition_by_id/{id}')
     return jsonify(r.json())
 
+@camara.route('/deputy_by_name', methods=['POST'])
+def deputy_by_name():
+    r = requests.post(f'http://{base_url}/api/deputy_by_name', json=request.get_json())
+    return jsonify(r.json())
+    
 @camara.route('/get_propositions_by_author_id/<id>')
 def get_propositions_by_author_id(id):
     r = requests.get(f'http://{base_url}/api/get_propositions_by_author_id/{id}')
